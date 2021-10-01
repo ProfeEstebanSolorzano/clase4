@@ -4,16 +4,8 @@ const numbers = [5, 10, 45, 87, 65, 25, 63, 41, 78, 66, 23, 97, 7, 11, 32, 75, 8
 
 const things = ['HOUSE MD', 'BREAKING BAD', 'THE OFFICE', 'DEXTER', 'RICK AND MORTY'];
 
-const nombreUno = 'Micheal';
-const apellidoUno = 'Scott';
-const direccionUno = 'Scranton, PA';
-const ocupacion = 'Gerente';
 
-const nombreDos = 'Gregory';
-const apellidoUno = 'House';
-const direccionUno = 'Scranton, PA';
-const ocupacion = 'Doctor'
-
+const concatenado = `background-color: ${colors[12]}`;
 
 function getRandomInt(min, max) {
   min = Math.ceil(min);
@@ -23,7 +15,84 @@ function getRandomInt(min, max) {
 
 const boton = document.querySelector('#boton1');
 const body = document.querySelector('body');
+
+
+//Saca numeros pares
+function cazarPares(lista){
+  const listaPares = [];
+  lista.forEach(element => {
+    if(element%2 === 0){
+      listaPares.push(element);
+    }
+  });  
+  return listaPares;
+}
+
+
+//retorna numeros mayores a 50
+function mayoresCincuenta(lista){
+  const mayores = [];
+  lista.forEach(element=>{
+    if(element > 50){
+      mayores.push(element)
+    }
+  })
+  return mayores;
+}
+
+//convierte a minusculas
+function minusculas(lista){
+  const listaMinusculas = [];
+  lista.forEach(element=>{
+    const min = element.toLowerCase();
+    listaMinusculas.push(min)    
+  })
+  return listaMinusculas;
+}
+
+
+const nombreUno = 'Micheal';
+const apellidoUno = 'Scott';
+const direccionUno = 'Scranton, PA';
+const ocupacionUno = 'Gerente';
+
+//JSON java script object notation
+const personaUno = {
+  nombre: nombreUno,
+  apellido: apellidoUno,
+  direccion: direccionUno,
+  ocupacion: ocupacionUno
+}
+
+const nombreDos = 'Gregory';
+const apellidoDos = 'House';
+const direccionDos = 'Scranton, PA';
+const ocupacionDos = 'Doctor'
+
+
+//JSON tiene dos funciones: stringify y parse
+
+function procesarPersonas(persona){
+  document.querySelector('textarea').textContent = JSON.stringify(persona, null, 4);
+}
+
 boton.onclick = (e) => {
-  console.log("Click");
+  document.querySelector('textarea').textContent = JSON.stringify(procesarFormulario(), null, 4);
+}
+
+
+function procesarFormulario(){
+  const persona = {
+    nombre: '',
+    apellido: '',
+    pais: ''
+  }
+
+  const textos = document.querySelectorAll('input[type=text]');
+  persona.nombre = textos[0].value;
+  persona.apellido = textos[1].value;
+  persona.pais = document.querySelector('#country').value;
+
+  return persona;
 }
 
