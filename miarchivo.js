@@ -1,13 +1,11 @@
 const colors = ['black', 'silver', 'gray', 'maroon', 'red', 'purple', 'fuchsia', 'green', 'lime', 'olive', 'yellow', 'navy', 'blue', 'teal', 'aqua', 'orange', 'aliceblue', 'antiquewhite', 'aquamarine', 'azure', 'beige', 'bisque', 'blanchedalmond', 'blueviolet', 'brown', 'burlywood', 'cadetblue', 'chartreuse', 'chocolate', 'coral', 'cornflowerblue', 'cornsilk', 'crimson', 'cyan', 'darkblue', 'darkcyan', 'darkgoldenrod', 'darkgray', 'darkgreen', 'darkgrey', 'darkkhaki', 'darkmagenta', 'darkolivegreen', 'darkorange', 'darkorchid', 'darkred', 'darksalmon', 'darkseagreen', 'darkslateblue', 'darkslategray', 'darkslategrey', 'darkturquoise', 'darkviolet', 'deeppink', 'deepskyblue', 'dimgray', 'dimgrey', 'dodgerblue', 'firebrick', 'floralwhite', 'forestgreen', 'gainsboro', 'ghostwhite', 'gold', 'goldenrod', 'greenyellow', 'grey', 'honeydew', 'hotpink', 'indianred', 'indigo', 'ivory', 'khaki', 'lavender', 'lavenderblush', 'lawngreen', 'lemonchiffon', 'lightblue', 'lightcoral', 'lightcyan', 'lightgoldenrodyellow', 'lightgray', 'lightgreen', 'lightgrey', 'lightpink', 'lightsalmon'];
-const colors2 = ['blue', 'red', 'white'];
+
 const numbers = [5, 10, 45, 87, 65, 25, 63, 41, 78, 66, 23, 97, 7, 11, 32, 75, 88, 91];
 
 const things = ['HOUSE MD', 'BREAKING BAD', 'THE OFFICE', 'DEXTER', 'RICK AND MORTY'];
 
-const color = colors[getRandomInt(0, colors.length - 1)];
-const concatenado = `background-color: ${color}`;
 
-console.log(concatenado)
+const concatenado = `background-color: ${colors[12]}`;
 
 function getRandomInt(min, max) {
   min = Math.ceil(min);
@@ -16,27 +14,26 @@ function getRandomInt(min, max) {
 }
 
 const boton = document.querySelector('#boton1');
-const boton2 = document.querySelector('#botonFormulario');
 const body = document.querySelector('body');
 
 
 //Saca numeros pares
-function cazarPares(lista) {
+function cazarPares(lista){
   const listaPares = [];
   lista.forEach(element => {
-    if (element % 2 === 0) {
+    if(element%2 === 0){
       listaPares.push(element);
     }
-  });
+  });  
   return listaPares;
 }
 
 
 //retorna numeros mayores a 50
-function mayoresCincuenta(lista) {
+function mayoresCincuenta(lista){
   const mayores = [];
-  lista.forEach(element => {
-    if (element > 50) {
+  lista.forEach(element=>{
+    if(element > 50){
       mayores.push(element)
     }
   })
@@ -44,11 +41,11 @@ function mayoresCincuenta(lista) {
 }
 
 //convierte a minusculas
-function minusculas(lista) {
+function minusculas(lista){
   const listaMinusculas = [];
-  lista.forEach(element => {
+  lista.forEach(element=>{
     const min = element.toLowerCase();
-    listaMinusculas.push(min)
+    listaMinusculas.push(min)    
   })
   return listaMinusculas;
 }
@@ -75,28 +72,20 @@ const ocupacionDos = 'Doctor'
 
 //JSON tiene dos funciones: stringify y parse
 
-function procesarPersonas(persona) {
+function procesarPersonas(persona){
   document.querySelector('textarea').textContent = JSON.stringify(persona, null, 4);
 }
 
 boton.onclick = (e) => {
-  console.log(document.querySelector('#css').value);
+  document.querySelector('textarea').textContent = JSON.stringify(procesarFormulario(), null, 4);
 }
 
 
-const listaPersonas = [];
-
-boton2.onclick = (e) => {
-  procesarFormulario();
-  document.querySelector('textarea').value = JSON.stringify(listaPersonas, null, 4)
-}
-function procesarFormulario() {
+function procesarFormulario(){
   const persona = {
     nombre: '',
     apellido: '',
-    pais: '',
-    lenguajeFavorito: '',
-    transporte: []
+    pais: ''
   }
 
   const textos = document.querySelectorAll('input[type=text]');
@@ -104,29 +93,6 @@ function procesarFormulario() {
   persona.apellido = textos[1].value;
   persona.pais = document.querySelector('#country').value;
 
-  document.querySelectorAll('input[name="fav_language"]').forEach(element => {
-    if (element.checked) {
-      persona.lenguajeFavorito = element.value
-    }
-  });
-
-  // persona.lenguajeFavorito = document.querySelector("input[name=fav_language]:checked").value;
-
-  document.querySelectorAll('input[type="checkbox"]').forEach(element => {
-    if (element.checked) {
-      persona.transporte.push(element.value)
-    }
-  });
-
-  listaPersonas.push(persona);
-
-  
-
-}
-
-function randomColor(listaColores) {
-  const color = listaColores[getRandomInt(0, listaColores.length)];
-  const concatenado = `background-color: ${color};`;
-  document.querySelector('body').setAttribute('style', concatenado);
+  return persona;
 }
 
