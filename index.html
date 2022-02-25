@@ -12,15 +12,16 @@
 
 <body>
     <div>
-        <form>
-            <label for="fname">First Name</label>
-            <input type="text" name="firstname" placeholder="Your name..">
+        <form onsubmit="return procesarFormulario()">
+            <label for="fname">First Name<span class="rojo">*</span></label>
+            <input type="text" name="firstname" placeholder="Your name.." required>
 
-            <label for="lname">Last Name</label>
-            <input type="text" name="lastname" placeholder="Your last name..">
+            <label for="name">Last Name<span class="rojo">*</span></label>
+            <input type="text" name="lastname" placeholder="Your last name.." required>
 
             <label for="country">Country</label>
             <select id="country" name="country">                
+                <option value="">Select</option>
                 <option value="Costa Rica">Costa Rica</option>
                 <option value="Mexico">Mexico</option>
                 <option value="Honduras">Honduras</option>
@@ -30,7 +31,7 @@
                 <option value="Panama">Panama</option>
             </select>
 
-            <p>Please select your favorite Web language:</p>
+            <p>Please select your favorite Web language:<span class="rojo">*</span></p>
             <input type="radio" id="html" name="fav_language" value="HTML">
             <label for="html">HTML</label><br>
             <input type="radio" id="css" name="fav_language" value="CSS">
@@ -39,8 +40,8 @@
             <label for="javascript">JavaScript</label>
 
 
-            <p>Please select your age:</p>
-            <input type="radio" id="age1" name="age" value="30">
+            <p>Please select your age:<span class="rojo">*</span></p>
+            <input type="radio" id="age1" name="age" value="30" required>
             <label for="age1">0 - 30</label><br>
             <input type="radio" id="age2" name="age" value="60">
             <label for="age2">31 - 60</label><br>
@@ -55,10 +56,10 @@
             <input type="checkbox" id="vehicle3" name="vehicle3" value="Boat">
             <label for="vehicle3"> I have a boat</label><br><br>
 
-            <input type="button" value="Submit" id="botonFormulario">
+            <input type="submit" value="Submit" id="botonFormulario">
         </form>
         <input type="button" value="click me" id="boton1">
-        <textarea name="" id="" cols="50" rows="10"></textarea>
+        <textarea name="" id="pizarra" cols="50" rows="10"></textarea>
     </div>
 
 
