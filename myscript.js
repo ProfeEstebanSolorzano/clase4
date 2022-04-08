@@ -44,7 +44,6 @@ const procesarFormulario = () => {
 }
 
 const persona = {
-
     apellido: '',
     pais: '',
     lenguajeFavorito: '',
