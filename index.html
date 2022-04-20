@@ -12,7 +12,7 @@
 
 <body>
     <div>
-        <form onsubmit="return procesarFormulario()">
+        <form onsubmit="return procesarFormulario()" novalidate>
             <label for="fname">First Name<span class="rojo">*</span></label>
             <input type="text" name="firstname" placeholder="Your name.." required>
 
@@ -20,7 +20,7 @@
             <input type="text" name="lastname" placeholder="Your last name.." required>
 
             <label for="country">Country</label>
-            <select id="country" name="country">                
+            <select id="country" name="country" required>                
                 <option value="">Select</option>
                 <option value="Costa Rica">Costa Rica</option>
                 <option value="Mexico">Mexico</option>
@@ -32,7 +32,7 @@
             </select>
 
             <p>Please select your favorite Web language:<span class="rojo">*</span></p>
-            <input type="radio" id="html" name="fav_language" value="HTML">
+            <input type="radio" id="html" name="fav_language" value="HTML" required>
             <label for="html">HTML</label><br>
             <input type="radio" id="css" name="fav_language" value="CSS">
             <label for="css">CSS</label><br>
@@ -41,11 +41,11 @@
 
 
             <p>Please select your age:<span class="rojo">*</span></p>
-            <input type="radio" id="age1" name="age" value="30" required>
+            <input type="radio" id="age1" name="age" value="menor de 30" required>
             <label for="age1">0 - 30</label><br>
-            <input type="radio" id="age2" name="age" value="60">
+            <input type="radio" id="age2" name="age" value="entre 31 y 60">
             <label for="age2">31 - 60</label><br>
-            <input type="radio" id="age3" name="age" value="100">
+            <input type="radio" id="age3" name="age" value="mayor de 61">
             <label for="age3">61 - 100</label><br><br>
 
             <p>Please select all that apply:</p>
